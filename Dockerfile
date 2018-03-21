@@ -16,4 +16,4 @@ COPY templates .
 
 # change the permissions and run the application
 RUN chmod +x main.pl
-CMD ["hypnotoad", "main.pl"]
+CMD ["./main.pl", "prefork"]
