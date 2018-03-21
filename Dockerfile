@@ -11,7 +11,9 @@ EXPOSE 8080
 # add your application code and set the working directory
 ADD . /app
 WORKDIR /app
+COPY public .
+COPY templates .
 
 # change the permissions and run the application
 RUN chmod +x main.pl
-CMD ["./main.pl", "daemon"]
+CMD ["hypnotoad", "main.pl"]
