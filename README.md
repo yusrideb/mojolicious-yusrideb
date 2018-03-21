@@ -1,31 +1,7 @@
-# Perl Custom Runtime for App Engine
+# Simple Web using Mojolicious Perl.
 
-Simple guide to running Mojolicious on [Google App Engine](https://cloud.google.com/appengine).
+Implementation using App Engine Google Cloud.
 
-1. [Create a new Mojolicious app](http://www.mojolicious.org/).
+Bootstrap Template from : https://startbootstrap.com/template-overviews/resume/
 
-2. Create an `app.yaml` in the root of your application with the following contents:
-
-    ```yaml
-    runtime: custom
-    env: flex
-    ```
-
-3. Create a [`Dockerfile`](Dockerfile) in the root of your application.
-
-4. Create a project in the [Google Developers Console](https://console.developers.google.com/).
-
-5. Make sure you have the [Google Cloud SDK](https://cloud.google.com/sdk/) installed.  When you're ready, initialize it:
-
-    ```sh
-    $ gcloud init
-    ```
-
-6. Deploy your app:
-
-    ```sh
-    gcloud app deploy
-    ```
-
-You are now running Perl on Google App Engine. How cool is that?
-# mojolicious-yusrideb
+Link Apps : https://mojolicious-yusrideb.appspot.com/
