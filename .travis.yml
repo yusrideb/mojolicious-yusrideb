@@ -7,6 +7,6 @@ perl:
 env:
   - "HARNESS_OPTIONS=j9"
 install:
-  - "cpanm -n --installdeps --notest ."
+  - "cpanm --quiet --installdeps --notest ."
 notifications:
   email: false
