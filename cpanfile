@@ -1,1 +1,1 @@
-requires 'Mojolicious', '7.71';
+requires Mojolicious => '7.71'
