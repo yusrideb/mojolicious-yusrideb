@@ -1,2 +1,0 @@
-#!/bin/bash
-./main.pl daemon --listen http://*:$PORT

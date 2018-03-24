@@ -1,6 +1,9 @@
 package Yusrideb;
 use Mojo::Base 'Mojolicious';
 
+# ABSTRACT: Main Module Application
+our $VERSION = '0.1000';
+
 # This method will run once at server start
 sub startup {
   my $self = shift;
