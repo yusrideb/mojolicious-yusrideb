@@ -11,9 +11,14 @@ EXPOSE 8080
 # add your application code and set the working directory
 ADD . /app
 WORKDIR /app
+COPY lib .
+COPY script .
+COPY t .
 COPY public .
 COPY templates .
 
-# change the permissions and run the application
-# RUN chmod +x main.pl
-CMD ["hypnotoad", "-f", "main.pl"]
+# To run on Heroku Container :
+#CMD ["morbo", "script/yusrideb", "-l", "http://0.0.0.0:${PORT}"]
+
+# To run on App Engine Google Cloud :
+CMD ["hypnotoad", "-f", "script/yusrideb"]
