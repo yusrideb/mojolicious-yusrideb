@@ -37,8 +37,7 @@ sub startup {
     my $request_url = $c->req->url->to_abs;
     if ($request_url->scheme eq 'http') {
       $request_url->scheme('https');
-      $c->res->headers->location;
-      $request_url->host('www.'.$domain);
+      $request_url->host($domain);
       $self->app->log->info($domain);
       my $u = $request_url->to_string;
       $self->app->log->info($u);
