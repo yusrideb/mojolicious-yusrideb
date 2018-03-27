@@ -42,8 +42,7 @@ sub startup {
       my $u = $request_url->to_string;
       $self->app->log->info($u);
       $u =~ s/\:([\d]+)//g;
-      $c->res->code(302);
-#      $c->res->headers->content_location($u);
+      $self->app->log->info($u);
       $c->redirect_to($u);
     }
   });
