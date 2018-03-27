@@ -51,7 +51,7 @@ sub startup {
     my $c = shift;
     if ( $c->req->headers->header('X-Forwarded-Host') ) {
       $c->req->url->base->scheme('https');
-      $c->req->url->base->path('/');
+      $c->req->url->base->path('index');
     }
   });
   
@@ -78,7 +78,7 @@ sub startup {
   $r->get('/' => sub {
     my $c = shift;
     $c->render(template => 'index', gzip => 1);
-  });
+  })->name('index');
 }
 
 1;
