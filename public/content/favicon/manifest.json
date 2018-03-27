@@ -38,5 +38,10 @@
       "type": "image\/png",
       "density": "4.0"
     }
-  ]
+  ],
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "theme_color": "white",
+  "background_color": "white",
+  "start_url": "/"
 }
