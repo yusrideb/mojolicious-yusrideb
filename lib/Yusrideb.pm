@@ -43,8 +43,8 @@ sub startup {
       $self->app->log->info($u);
       $u =~ s/\:([\d]+)//g;
       $c->res->code(302);
-      $c->res->headers->content_location($u);
-#      $c->redirect_to($u);
+#      $c->res->headers->content_location($u);
+      $c->redirect_to($u);
     }
   });
   
