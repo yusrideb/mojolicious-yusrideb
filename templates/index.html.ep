@@ -47,7 +47,7 @@
       <p class="mb-5">I am experienced with PHP, Javascript, and Perl Programming.</p>
       <ul class="list-inline list-social-icons mb-0">
         <li class="list-inline-item">
-          <a href="http://fb.com/ynadeb" title="yusrideb" target="_blank">
+          <a href="http://fb.com/ynadeb" title="yusrideb" target="_blank" rel="noopener">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -55,7 +55,7 @@
           </a>
         </li>
         <li class="list-inline-item">
-          <a href="http://twitter.com/yusrideb" title="yusrideb" target="_blank">
+          <a href="http://twitter.com/yusrideb" title="yusrideb" target="_blank" rel="noopener">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -63,7 +63,7 @@
           </a>
         </li>
         <li class="list-inline-item">
-          <a href="https://www.linkedin.com/in/achmad-yusri-afandi/" title="yusrideb" target="_blank">
+          <a href="https://www.linkedin.com/in/achmad-yusri-afandi/" title="yusrideb" target="_blank" rel="noopener">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -71,7 +71,7 @@
           </a>
         </li>
         <li class="list-inline-item">
-          <a href="https://github.com/yusrideb" title="yusrideb" target="_blank">
+          <a href="https://github.com/yusrideb" title="yusrideb" target="_blank" rel="noopener">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-github fa-stack-1x fa-inverse"></i>
