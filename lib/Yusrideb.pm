@@ -40,6 +40,7 @@ sub startup {
       $request_url->host($domain);
       $self->app->log->info($domain);
       my $u = $request_url->to_string;
+      $self->app->log->info($u);
       $c->redirect_to($u);
     }
   });
