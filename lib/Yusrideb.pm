@@ -37,11 +37,14 @@ sub startup {
     my $request_url = $c->req->url->to_abs;
     if ($request_url->scheme eq 'http') {
       $request_url->scheme('https');
-      $request_url->host($domain);
-      $request_url->port();
+      $c->res->headers->location;
+      $request_url->host('www.'.$domain);
       $self->app->log->info($domain);
       my $u = $request_url->to_string;
       $self->app->log->info($u);
+      $u =~ s/\:([\d]+)//g;
+      $c->res->headers->content_location($u);
+      $c->res->code(302);
       $c->redirect_to($u);
     }
   });
