@@ -32,7 +32,7 @@ sub startup {
 #    }
 #  });
   
-  $self->hook(before_dispatch => sub {
+  $self->hook(after_dispatch => sub {
     my $c = shift;
     my $request_url = $c->req->url->to_abs;
     if ($request_url->scheme eq 'http') {
