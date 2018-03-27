@@ -38,6 +38,7 @@ sub startup {
     if ($request_url->scheme eq 'http') {
       $request_url->scheme('https');
       $request_url->host($domain);
+      $request_url->port();
       $self->app->log->info($domain);
       my $u = $request_url->to_string;
       $self->app->log->info($u);
