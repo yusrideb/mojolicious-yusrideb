@@ -37,6 +37,7 @@ sub startup {
     my $request_url = $c->req->url->to_abs;
     if ($request_url->scheme eq 'http') {
       $request_url->scheme('https');
+      $request_url->host($domain);
       my $u = $request_url->to_string;
       $c->redirect_to($u);
     }
