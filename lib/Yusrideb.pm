@@ -47,6 +47,14 @@ sub startup {
 #    }
 #  });
   
+  $self->hook(before_dispatch => sub {
+    my $c = shift;
+    if ( $c->req->headers->header('X-Forwarded-Host') ) {
+      $c->req->url->base->scheme('https');
+      $c->req->url->base->path('/');
+    }
+  });
+  
   $self->hook(after_render => sub {
     my ($c, $output, $format) = @_;
     
