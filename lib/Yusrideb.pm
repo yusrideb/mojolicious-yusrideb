@@ -19,7 +19,7 @@ sub startup {
     my $request_url = $c->req->url->to_abs;
     my $host = $c->req->url->to_abs->host;
     my $path = $c->req->url->path_query;
-    if ($c->req->url->protocol eq 'http') {
+    if ($request_url->scheme eq 'http') {
       $request_url->scheme('https');
       $self->app->log->info($domain);
       $self->app->log->info('Request Schema : '.$request_url->scheme);
