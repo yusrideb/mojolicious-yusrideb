@@ -32,26 +32,26 @@ sub startup {
 #    }
 #  });
   
-#  $self->hook(after_dispatch => sub {
-#    my $c = shift;
-#    my $request_url = $c->req->url->to_abs;
-#    if ($request_url->scheme eq 'http') {
-#      $request_url->scheme('https');
-#      $request_url->host($domain);
-#      $self->app->log->info($domain);
-#      my $u = $request_url->to_string;
-#      $self->app->log->info($u);
-#      $u =~ s/\:([\d]+)//g;
-#      $self->app->log->info($u);
-#      $c->redirect_to($u);
-#    }
-#  });
-  
-  $self->hook(before_dispatch => sub {
+  $self->hook(after_dispatch => sub {
     my $c = shift;
-    $c->req->url->base->scheme('https')
-      if $c->req->headers->header('X-Forwarded-HTTPS');
+    my $request_url = $c->req->url->to_abs;
+    if ($request_url->scheme eq 'http') {
+      $request_url->scheme('https');
+      $request_url->host($domain);
+      $self->app->log->info($domain);
+      my $u = $request_url->to_string;
+      $self->app->log->info($u);
+      $u =~ s/\:([\d]+)//g;
+      $self->app->log->info($u);
+      $c->redirect_to($u);
+    }
   });
+  
+#  $self->hook(before_dispatch => sub {
+#    my $c = shift;
+#    $c->req->url->base->scheme('https')
+#      if $c->req->headers->header('X-Forwarded-HTTPS');
+#  });
   
   $self->hook(after_render => sub {
     my ($c, $output, $format) = @_;
