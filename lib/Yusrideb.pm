@@ -25,7 +25,6 @@ sub startup {
       $self->app->log->info('Request Schema : '.$request_url->scheme);
       $self->app->log->info('Request URL : '.$request_url);
       my $r_req = $request_url->scheme.'://'.$domain.$path;
-#      $self->app->log->info($r_req);
       $self->app->log->info('Request URI : '.$path);
       $self->app->log->info('Result URL : '.$r_req);
       $c->redirect_to($r_req);
