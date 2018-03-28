@@ -46,11 +46,11 @@ sub startup {
 #    }
 #  });
   
-  $self->hook(before_dispatch => sub {
-    my $c = shift;
-    $c->req->url->base->scheme('https')
-      if $c->req->headers->header('X-Forwarded-HTTPS');
-  });
+#  $self->hook(before_dispatch => sub {
+#    my $c = shift;
+#    $c->req->url->base->scheme('https')
+#      if $c->req->headers->header('X-Forwarded-HTTPS');
+#  });
   
   $self->hook(after_render => sub {
     my ($c, $output, $format) = @_;
@@ -74,23 +74,7 @@ sub startup {
   # Normal route to controller
   $r->get('/' => sub {
     my $c = shift;
-  
-    my $request_url = $c->req->url->to_abs;
-    my $host = $c->req->url->to_abs->host;
-    my $path = $c->req->url->path_query;
-    if ($request_url->scheme eq 'http') {
-      $request_url->scheme('https');
-      $request_url->host($domain);
-      $self->app->log->info($domain);
-      $self->app->log->info('Request Schema : ' . $request_url->scheme);
-      $self->app->log->info('Request URL : ' . $request_url);
-      my $r_req = $request_url->scheme . '://' . $domain . $path;
-      $self->app->log->info('Request URI : ' . $path);
-      $self->app->log->info('Result URL : ' . $r_req);
-      $c->redirect_to($r_req);
-    } else {
-      $c->render(template => 'index', gzip => 1);
-    }
+    $c->render(template => 'index', gzip => 1);
   })->name('index');
 }
 
