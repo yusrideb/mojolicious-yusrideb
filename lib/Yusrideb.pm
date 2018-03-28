@@ -47,7 +47,7 @@ sub startup {
 #    }
 #  });
   
-  $app->hook(before_dispatch => sub {
+  $self->hook(before_dispatch => sub {
     my $c = shift;
     $c->req->url->base->scheme('https')
       if $c->req->headers->header('X-Forwarded-HTTPS');
