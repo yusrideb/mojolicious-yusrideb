@@ -10,6 +10,8 @@ our $VERSION = '0.1000';
 sub startup {
   my $self = shift;
   
+  $self->plugin('ACME');
+  
   $self->plugin('Config' => {file => 'myapp.stuff'});
   my $config = $self->config;
   my $domain = $config->{mydomain};
