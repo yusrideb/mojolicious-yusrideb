@@ -76,6 +76,12 @@ sub startup {
     my $c = shift;
     $c->render(template => 'index', gzip => 1);
   })->name('index');
+  
+  # Normal route to controller
+  $r->get('/home' => sub {
+    my $c = shift;
+    $c->render(template => 'index', gzip => 1);
+  })->name('index');
 }
 
 1;
