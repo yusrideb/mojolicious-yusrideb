@@ -1,0 +1,9 @@
+{
+  hypnotoad => {
+    listen => [ 'http://*:65480' ],
+    workers => 5,
+    proxy => 1
+  },
+  mydomain => '127.0.0.1'
+}
+
