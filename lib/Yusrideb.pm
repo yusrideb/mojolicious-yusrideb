@@ -14,38 +14,38 @@ sub startup {
   my $config = $self->config;
   my $domain = $config->{mydomain};
   
-#  $self->hook(before_dispatch => sub {
-#    my $c = shift;
-#    my $request_url = $c->req->url->to_abs;
-#    my $host = $c->req->url->to_abs->host;
-#    my $path = $c->req->url->path_query;
-#    if ($c->req->url->protocol eq 'http') {
-#      $request_url->scheme('https');
-#      $self->app->log->info($domain);
-#      $self->app->log->info('Request Schema : '.$request_url->scheme);
-#      $self->app->log->info('Request URL : '.$request_url);
-#      my $r_req = $request_url->scheme.'://'.$domain.$path;
-##      $self->app->log->info($r_req);
-#      $self->app->log->info('Request URI : '.$path);
-#      $self->app->log->info('Result URL : '.$r_req);
-#      $c->redirect_to($r_req);
-#    }
-#  });
-  
-  $self->hook(after_dispatch => sub {
+  $self->hook(before_dispatch => sub {
     my $c = shift;
     my $request_url = $c->req->url->to_abs;
-    if ($request_url->scheme eq 'http') {
+    my $host = $c->req->url->to_abs->host;
+    my $path = $c->req->url->path_query;
+    if ($c->req->url->protocol eq 'http') {
       $request_url->scheme('https');
-      $request_url->host($domain);
       $self->app->log->info($domain);
-      my $u = $request_url->to_string;
-      $self->app->log->info($u);
-      $u =~ s/\:([\d]+)//g;
-      $self->app->log->info($u);
-      $c->redirect_to($u);
+      $self->app->log->info('Request Schema : '.$request_url->scheme);
+      $self->app->log->info('Request URL : '.$request_url);
+      my $r_req = $request_url->scheme.'://'.$domain.$path;
+#      $self->app->log->info($r_req);
+      $self->app->log->info('Request URI : '.$path);
+      $self->app->log->info('Result URL : '.$r_req);
+      $c->redirect_to($r_req);
     }
   });
+  
+#  $self->hook(after_dispatch => sub {
+#    my $c = shift;
+#    my $request_url = $c->req->url->to_abs;
+#    if ($request_url->scheme eq 'http') {
+#      $request_url->scheme('https');
+#      $request_url->host($domain);
+#      $self->app->log->info($domain);
+#      my $u = $request_url->to_string;
+#      $self->app->log->info($u);
+#      $u =~ s/\:([\d]+)//g;
+#      $self->app->log->info($u);
+#      $c->redirect_to($u);
+#    }
+#  });
   
 #  $self->hook(before_dispatch => sub {
 #    my $c = shift;
