@@ -47,12 +47,10 @@ sub startup {
 #    }
 #  });
   
-  $self->hook(before_dispatch => sub {
+  $app->hook(before_dispatch => sub {
     my $c = shift;
-    if ( $c->req->headers->header('X-Forwarded-Host') ) {
-      $c->req->url->base->scheme('https');
-      $c->req->url->base->path('index');
-    }
+    $c->req->url->base->scheme('https')
+      if $c->req->headers->header('X-Forwarded-HTTPS');
   });
   
   $self->hook(after_render => sub {
