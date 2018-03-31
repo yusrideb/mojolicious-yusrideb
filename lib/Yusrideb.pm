@@ -10,7 +10,7 @@ our $VERSION = '0.1000';
 sub startup {
   my $self = shift;
   
-  $ENV{MOJO_REVERSE_PROXY} = 1;
+#  $ENV{MOJO_REVERSE_PROXY} = 1;
   
   $self->plugin('Config' => {file => 'myapp.stuff'});
   my $config = $self->config;
