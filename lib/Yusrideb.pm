@@ -54,21 +54,21 @@ sub startup {
 #      if $c->req->headers->header('X-Forwarded-HTTPS');
 #  });
   
-  $self->hook(after_render => sub {
-    my ($c, $output, $format) = @_;
-    
-    # Check if "gzip => 1" has been set in the stash
-    return unless $c->stash->{gzip};
-    
-    # Check if user agent accepts GZip compression
-    return unless ($c->req->headers->accept_encoding // '') =~ /gzip/i;
-    $c->res->headers->append(Vary => 'Accept-Encoding');
-    
-    # Compress content with GZip
-    $c->res->headers->content_encoding('gzip');
-    gzip $output, \my $compressed;
-    $$output = $compressed;
-  });
+#  $self->hook(after_render => sub {
+#    my ($c, $output, $format) = @_;
+#
+#    # Check if "gzip => 1" has been set in the stash
+#    return unless $c->stash->{gzip};
+#
+#    # Check if user agent accepts GZip compression
+#    return unless ($c->req->headers->accept_encoding // '') =~ /gzip/i;
+#    $c->res->headers->append(Vary => 'Accept-Encoding');
+#
+#    # Compress content with GZip
+#    $c->res->headers->content_encoding('gzip');
+#    gzip $output, \my $compressed;
+#    $$output = $compressed;
+#  });
   
   # Router
   my $r = $self->routes;
