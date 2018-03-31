@@ -48,11 +48,11 @@ sub startup {
 #    }
 #  });
   
-#  $self->hook(before_dispatch => sub {
-#    my $c = shift;
-#    $c->req->url->base->scheme('https')
-#      if $c->req->headers->header('X-Forwarded-HTTPS');
-#  });
+  $self->hook(before_dispatch => sub {
+    my $c = shift;
+    $c->req->url->base->scheme('https')
+      if $c->req->headers->header('X-Forwarded-HTTPS');
+  });
   
   $self->hook(after_render => sub {
     my ($c, $output, $format) = @_;
