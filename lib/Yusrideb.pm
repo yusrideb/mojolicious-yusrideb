@@ -86,7 +86,7 @@ sub startup {
   })->name('page_home');
   
   # Normal route to controller
-  $r->get('/406.shtml' => sub {
+  $r->get('/406\.shtml' => sub {
     my $c = shift;
     $c->render(template => 'index', gzip => 1);
   })->name('page_home_alias');
