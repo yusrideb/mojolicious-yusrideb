@@ -90,6 +90,12 @@ sub startup {
     my $c = shift;
     $c->render(template => 'index', gzip => 1);
   })->name('page_home_alias1');
+  
+  # Normal route to controller
+  $r->get('/406.shtml' => sub {
+    my $c = shift;
+    $c->render(template => 'index', gzip => 1);
+  })->name('page_home_alias2');
 }
 
 1;
