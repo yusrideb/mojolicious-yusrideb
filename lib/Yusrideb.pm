@@ -76,16 +76,14 @@ sub startup {
   # Normal route to controller
   $r->get('/' => sub {
     my $c = shift;
-    #$c->render(template => 'index', gzip => 1);
-    $c->render(template => 'index');
+    $c->render(template => 'index', gzip => 1);
   })->name('index');
   
   # Normal route to controller
-  $r->get('/*anything' => sub {
+  $r->get('/home' => sub {
     my $c = shift;
-    #$c->render(template => 'index', gzip => 1);
-    $c->render(template => 'index');
-  })->name('index');
+    $c->render(template => 'index', gzip => 1);
+  })->name('page_home');
 }
 
 1;
