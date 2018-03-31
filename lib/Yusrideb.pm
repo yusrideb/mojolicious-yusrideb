@@ -76,7 +76,7 @@ sub startup {
   # Normal route to controller
   $r->get('/' => sub {
     my $c = shift;
-    $c->render(template => 'index', gzip => 1);
+    $c->redirect('page_home');
   })->name('index');
   
   # Normal route to controller
