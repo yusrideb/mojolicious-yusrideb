@@ -76,7 +76,8 @@ sub startup {
   # Normal route to controller
   $r->get('/' => sub {
     my $c = shift;
-    $c->redirect('page_home');
+    $c->res->code(301);
+    $c->redirect_to('page_home');
   })->name('index');
   
   # Normal route to controller
