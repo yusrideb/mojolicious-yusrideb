@@ -41,8 +41,8 @@
       <h1 class="mb-0">Achmad Yusri
         <span class="text-primary">Afandi</span>
       </h1>
-      <div class="subheading mb-5">
-        <a href="mailto:yusrideb@cpan.org">yusrideb@cpan.org</a>
+      <div class="subheading-anchor mb-5">
+        <a class="text-anchor" href="mailto:yusrideb@cpan.org">yusrideb@cpan.org</a>
       </div>
       <p class="mb-5">I am experienced with PHP, Javascript, and Perl Programming.</p>
       <ul class="list-inline list-social-icons mb-0">

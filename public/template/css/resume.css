@@ -39,6 +39,19 @@ h2 {
   font-size: 1.35rem;
 }
 
+.subheading-anchor {
+  background-color: #717171;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'Saira Extra Condensed',serif;
+  font-size: 1.35rem;
+  padding-left: 10px;
+}
+
+.text-anchor {
+  color: #ffffff;
+}
+
 .list-social-icons a {
   color: #495057;
 }
