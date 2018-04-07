@@ -33,7 +33,7 @@
     <title>Resume - Achmad Yusri Afandi</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/library/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="/library/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" async>
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" type="text/css" rel="stylesheet" async>
