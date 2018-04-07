@@ -18,7 +18,7 @@ COPY public .
 COPY templates .
 
 # To run on Heroku Container :
-#CMD ["morbo", "script/yusrideb", "-l", "http://0.0.0.0:${PORT}"]
+CMD ["morbo", "script/yusrideb", "-l", "http://0.0.0.0:${PORT}"]
 
 # To run on App Engine Google Cloud :
-CMD ["hypnotoad", "-f", "script/yusrideb"]
+#CMD ["hypnotoad", "-f", "script/yusrideb"]
