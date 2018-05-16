@@ -77,7 +77,7 @@ sub startup {
   $r->get('/' => sub {
     my $c = shift;
   
-    $c->res->code(302);
+    $c->res->code(301);
     $c->redirect_to('page_home');
   })->name('index');
   
