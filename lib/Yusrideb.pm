@@ -12,7 +12,7 @@ sub startup {
   
   $ENV{MOJO_REVERSE_PROXY} = 1;
   
-  $self->plugin('Config' => {file => 'myapp.stuff'});
+  $self->plugin('Config' => {file => 'app.conf'});
   my $config = $self->config;
   my $domain = $config->{mydomain};
   
