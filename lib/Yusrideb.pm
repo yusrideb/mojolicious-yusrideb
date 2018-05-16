@@ -81,10 +81,10 @@ sub startup {
     # $c->res->headers->header('Server' => 'Mojolicious');
   
     # Security :
-    $c->res->headers->header('X-Content-Security-Policy' => "default-src 'self'");
-    $c->res->headers->header('X-Content-Type-Options' => 'nosniff');
-    $c->res->headers->header('X-XSS-Protection' => "1; 'mode=block'");
-    $c->res->headers->header('X-Frame-Options' => 'DENY');
+    # $c->res->headers->header('X-Content-Security-Policy' => "default-src 'self'");
+    # $c->res->headers->header('X-Content-Type-Options' => 'nosniff');
+    # $c->res->headers->header('X-XSS-Protection' => "1; 'mode=block'");
+    # $c->res->headers->header('X-Frame-Options' => 'DENY');
   
     $c->res->code(301);
     $c->redirect_to('page_home');
