@@ -86,8 +86,16 @@ sub startup {
     # $c->res->headers->header('X-XSS-Protection' => "1; 'mode=block'");
     # $c->res->headers->header('X-Frame-Options' => 'DENY');
   
-    $c->res->code(301);
-    $c->redirect_to('page_home');
+    # Security :
+    # $c->res->headers->header('X-Content-Security-Policy' => "default-src 'self'");
+    $c->res->headers->header('X-Content-Type-Options' => 'nosniff');
+    $c->res->headers->header('X-XSS-Protection' => "1; 'mode=block'");
+    $c->res->headers->header('X-Frame-Options' => 'DENY');
+  
+    $c->render(template => 'index', gzip => 1);
+  
+#    $c->res->code(301);
+#    $c->redirect_to('page_home');
   })->name('index');
   
   # Normal route to controller
