@@ -118,7 +118,7 @@ sub startup {
   $r->get('/index.html' => sub {
     my $c = shift;
   
-    $c->res->code(301);
+    $c->res->code(302);
     $c->redirect_to('page_home');
   })->name('page_home_alias1');
   
@@ -126,7 +126,7 @@ sub startup {
   $r->get('/406.shtml' => sub {
     my $c = shift;
   
-    $c->res->code(301);
+    $c->res->code(302);
     $c->redirect_to('page_home');
   })->name('page_home_alias2');
 }
