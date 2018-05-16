@@ -88,8 +88,8 @@ sub startup {
   
     # Security :
     # $c->res->headers->header('X-Content-Security-Policy' => "default-src 'self'");
-    $c->res->headers->header('X-Content-Type-Options' => 'nosniff');
-    $c->res->headers->header('X-XSS-Protection' => "1; 'mode=block'");
+    # $c->res->headers->header('X-Content-Type-Options' => 'nosniff');
+    $c->res->headers->header('X-XSS-Protection' => "1");
     $c->res->headers->header('X-Frame-Options' => 'DENY');
   
     $c->render(template => 'index', gzip => 1);
@@ -106,9 +106,9 @@ sub startup {
     # $c->res->headers->header('Server' => 'Mojolicious');
   
     # Security :
-    $c->res->headers->header('X-Content-Security-Policy' => "default-src 'self'");
-    $c->res->headers->header('X-Content-Type-Options' => 'nosniff');
-    $c->res->headers->header('X-XSS-Protection' => "1; 'mode=block'");
+    # $c->res->headers->header('X-Content-Security-Policy' => "default-src 'self'");
+    # $c->res->headers->header('X-Content-Type-Options' => 'nosniff');
+    $c->res->headers->header('X-XSS-Protection' => "1");
     $c->res->headers->header('X-Frame-Options' => 'DENY');
     
     $c->render(template => 'index', gzip => 1);
