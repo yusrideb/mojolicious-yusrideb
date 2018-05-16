@@ -108,6 +108,7 @@ sub startup {
   
   # Normal route to controller
   $r->get('/index.html' => sub {
+    my $c = shift;
   
     $c->res->code(301);
     $c->redirect_to('page_home');
@@ -115,6 +116,7 @@ sub startup {
   
   # Normal route to controller
   $r->get('/406.shtml' => sub {
+    my $c = shift;
   
     $c->res->code(301);
     $c->redirect_to('page_home');
