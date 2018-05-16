@@ -76,6 +76,9 @@ sub startup {
   # Normal route to controller
   $r->get('/' => sub {
     my $c = shift;
+    
+    # [EXPERIMENTAL] Server Name Header :
+    $c->res->headers->header('Server' => 'Mojolicious');
   
     # Security :
     $c->res->headers->header('X-Content-Security-Policy' => "default-src 'self'");
@@ -89,6 +92,9 @@ sub startup {
   # Normal route to controller
   $r->get('/home' => sub {
     my $c = shift;
+  
+    # [EXPERIMENTAL] Server Name Header :
+    $c->res->headers->header('Server' => 'Mojolicious');
   
     # Security :
     $c->res->headers->header('X-Content-Security-Policy' => "default-src 'self'");
