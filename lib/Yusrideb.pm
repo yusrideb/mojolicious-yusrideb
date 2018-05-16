@@ -86,7 +86,7 @@ sub startup {
     # $c->res->headers->header('X-XSS-Protection' => "1; 'mode=block'");
     # $c->res->headers->header('X-Frame-Options' => 'DENY');
   
-    $c->res->code(302);
+    $c->res->code(301);
     $c->redirect_to('page_home');
   })->name('index');
   
@@ -107,16 +107,18 @@ sub startup {
   })->name('page_home');
   
   # Normal route to controller
-  #  $r->get('/index.html' => sub {
-  #    my $c = shift;
-  #    $c->render(template => 'index', gzip => 1);
-  #  })->name('page_home_alias1');
+  $r->get('/index.html' => sub {
+  
+    $c->res->code(301);
+    $c->redirect_to('page_home');
+  })->name('page_home_alias1');
   
   # Normal route to controller
-  #  $r->get('/406.shtml' => sub {
-  #    my $c = shift;
-  #    $c->render(template => 'index', gzip => 1);
-  #  })->name('page_home_alias2');
+  $r->get('/406.shtml' => sub {
+  
+    $c->res->code(301);
+    $c->redirect_to('page_home');
+  })->name('page_home_alias2');
 }
 
 1;
