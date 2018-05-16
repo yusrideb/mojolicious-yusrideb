@@ -32,7 +32,7 @@ sub startup {
 #      $c->redirect_to($r_req);
 #    }
 #  });
-  
+
 #  $self->hook(after_dispatch => sub {
 #    my $c = shift;
 #    my $request_url = $c->req->url->to_abs;
@@ -47,7 +47,7 @@ sub startup {
 #      $c->redirect_to($u);
 #    }
 #  });
-  
+
 #  $self->hook(before_dispatch => sub {
 #    my $c = shift;
 #    $c->req->url->base->scheme('https')
@@ -70,14 +70,20 @@ sub startup {
 #    $$output = $compressed;
 #  });
   
+  # Security :
+  $self->res->headers->header('X-Content-Security-Policy' => "default-src 'self'");
+  $self->res->headers->header('X-Content-Type-Options' => 'nosniff');
+  $self->res->headers->header('X-XSS-Protection' => "1; 'mode=block'");
+  $self->res->headers->header('X-Frame-Options' => 'DENY');
+
   # Router
   my $r = $self->routes;
   
   # Normal route to controller
   $r->get('/' => sub {
     my $c = shift;
-    $c->res->code(301);
-    $c->redirect_to('page_home');
+    my $c = shift;
+    $c->render(template => 'index', gzip => 1);
   })->name('index');
   
   # Normal route to controller
@@ -87,16 +93,16 @@ sub startup {
   })->name('page_home');
   
   # Normal route to controller
-  $r->get('/index.html' => sub {
-    my $c = shift;
-    $c->render(template => 'index', gzip => 1);
-  })->name('page_home_alias1');
+  #  $r->get('/index.html' => sub {
+  #    my $c = shift;
+  #    $c->render(template => 'index', gzip => 1);
+  #  })->name('page_home_alias1');
   
   # Normal route to controller
-  $r->get('/406.shtml' => sub {
-    my $c = shift;
-    $c->render(template => 'index', gzip => 1);
-  })->name('page_home_alias2');
+  #  $r->get('/406.shtml' => sub {
+  #    my $c = shift;
+  #    $c->render(template => 'index', gzip => 1);
+  #  })->name('page_home_alias2');
 }
 
 1;
