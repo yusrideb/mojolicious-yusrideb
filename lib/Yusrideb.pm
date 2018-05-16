@@ -91,12 +91,26 @@ sub startup {
   })->name('page_home');
   
   # Normal route to controller
+  $r->get('/homepage' => sub {
+    my $c = shift;
+    
+    $c->render(template => 'index', gzip => 1);
+  })->name('page_home_alias1');
+  
+  # Normal route to controller
+  $r->get('/dashboard' => sub {
+    my $c = shift;
+    
+    $c->render(template => 'index', gzip => 1);
+  })->name('page_home_alias2');
+  
+  # Normal route to controller
   $r->get('/index.html' => sub {
     my $c = shift;
   
     $c->res->code(302);
     $c->redirect_to('page_home');
-  })->name('page_home_alias1');
+  })->name('page_home_redirect1');
   
   # Normal route to controller
   $r->get('/406.shtml' => sub {
@@ -104,7 +118,7 @@ sub startup {
   
     $c->res->code(302);
     $c->redirect_to('page_home');
-  })->name('page_home_alias2');
+  })->name('page_home_redirect1');
 }
 
 1;
