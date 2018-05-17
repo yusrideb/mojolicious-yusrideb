@@ -69,6 +69,8 @@ sub startup {
 #    gzip $output, \my $compressed;
 #    $$output = $compressed;
 #  });
+  # Documentation browser under "/perldoc"
+  $self->plugin('PODRenderer');
 
   # Router
   my $r = $self->routes;
