@@ -1,12 +1,6 @@
 package Yusrideb;
 use Mojo::Base 'Mojolicious';
 
-use File::Basename 'dirname';
-use File::Spec;
-use File::Spec::Functions qw'rel2abs catdir';
-use File::ShareDir 'dist_dir';
-use Cwd;
-use Cwd;
 use IO::Compress::Gzip 'gzip';
 
 # ABSTRACT: Main Module Application
@@ -21,6 +15,7 @@ sub startup {
   $self->plugin('Config' => {file => 'app.conf'});
   my $config = $self->config;
   my $domain = $config->{mydomain};
+  my $homedir = $config->{homedir};
 
 #  $self->hook(before_dispatch => sub {
 #    my $c = shift;
@@ -80,8 +75,8 @@ sub startup {
   $self->plugin('PODRenderer');
   
   # Mouting other mojolicious apps :
-  $self->plugin(Mount => {'/app1' => catdir('app') . '/App1' });
-  $self->plugin(Mount => {'/app2' => catdir('app') . '/App2' });
+  $self->plugin(Mount => {'/app1' => (-d $homedir->{hosting} ? $homedir->{hosting} : $homedir->{notebook}) . 'App1' });
+  $self->plugin(Mount => {'/app2' => (-d $homedir->{hosting} ? $homedir->{hosting} : $homedir->{notebook}) . 'App2' });
 
   # Router
   my $r = $self->routes;
