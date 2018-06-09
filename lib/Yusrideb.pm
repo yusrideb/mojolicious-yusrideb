@@ -15,7 +15,8 @@ sub startup {
   $self->plugin('Config' => {file => 'app.conf'});
   my $config = $self->config;
   my $domain = $config->{mydomain};
-  my $homedir = $config->{homedir};
+  my $appdir = $config->{appdir};
+  my $homedir = -d $appdir->{hosting} ? $appdir->{hosting} : $appdir->{notebook};
 
 #  $self->hook(before_dispatch => sub {
 #    my $c = shift;
@@ -75,8 +76,8 @@ sub startup {
   $self->plugin('PODRenderer');
   
   # Mouting other mojolicious apps :
-  $self->plugin(Mount => {'/app1' => (-d $homedir->{hosting} ? $homedir->{hosting} : $homedir->{notebook}) . 'App1' });
-  $self->plugin(Mount => {'/app2' => (-d $homedir->{hosting} ? $homedir->{hosting} : $homedir->{notebook}) . 'App2' });
+  $self->plugin(Mount => {'/app1' => $homedir . 'app/App1' });
+  $self->plugin(Mount => {'/app2' => $homedir . 'app/App2' });
 
   # Router
   my $r = $self->routes;
