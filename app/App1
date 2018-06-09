@@ -8,13 +8,13 @@ get '/' => sub {
 
 get '/route' => sub {
   my $c = shift;
-  $c->render(template => 'route');
+  $c->render(template => 'route1');
 };
 
 app->start;
 __DATA__
 
-@@ route.html.ep
+@@ route1.html.ep
 % layout 'default';
 % title 'Welcome';
 <h1>App1 - Routing URI</h1>
