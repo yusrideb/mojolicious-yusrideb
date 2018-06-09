@@ -1,6 +1,7 @@
 package Yusrideb;
 use Mojo::Base 'Mojolicious';
 
+use Cwd;
 use IO::Compress::Gzip 'gzip';
 
 # ABSTRACT: Main Module Application
@@ -15,7 +16,7 @@ sub startup {
   $self->plugin('Config' => {file => 'app.conf'});
   my $config = $self->config;
   my $domain = $config->{mydomain};
-  
+
 #  $self->hook(before_dispatch => sub {
 #    my $c = shift;
 #    my $request_url = $c->req->url->to_abs;
@@ -53,7 +54,7 @@ sub startup {
 #    $c->req->url->base->scheme('https')
 #      if $c->req->headers->header('X-Forwarded-HTTPS');
 #  });
-  
+
 #  $self->hook(after_render => sub {
 #    my ($c, $output, $format) = @_;
 #
@@ -69,8 +70,13 @@ sub startup {
 #    gzip $output, \my $compressed;
 #    $$output = $compressed;
 #  });
+
   # Documentation browser under "/perldoc"
   $self->plugin('PODRenderer');
+  
+  # Mouting other mojolicious apps :
+  $self->plugin(Mount => {'/app1' => getcwd . '/app/App1'});
+  $self->plugin(Mount => {'/app2' => getcwd . '/app/App2'});
 
   # Router
   my $r = $self->routes;

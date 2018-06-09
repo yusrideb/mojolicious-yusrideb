@@ -1,0 +1,35 @@
+#!/usr/bin/env perl
+use Mojolicious::Lite;
+
+get '/' => sub {
+  my $c = shift;
+  $c->render(template => 'index');
+};
+
+get '/route' => sub {
+  my $c = shift;
+  $c->render(template => 'route');
+};
+
+app->start;
+__DATA__
+
+@@ route.html.ep
+% layout 'default';
+% title 'Welcome';
+<h1>App2 - Routing URI</h1>
+<p>Routing URI = /route</p>
+
+@@ index.html.ep
+% layout 'default';
+% title 'Welcome';
+<h1>Welcome to the Mojolicious real-time web framework!</h1>
+Access Application 2.
+
+
+@@ layouts/default.html.ep
+<!DOCTYPE html>
+<html>
+  <head><title><%= title %></title></head>
+  <body><%= content %></body>
+</html>
