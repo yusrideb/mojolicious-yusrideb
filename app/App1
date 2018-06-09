@@ -26,6 +26,7 @@ __DATA__
 <h1>Welcome to the Mojolicious real-time web framework!</h1>
 Access Application 1.
 
+
 @@ layouts/default.html.ep
 <!DOCTYPE html>
 <html>
