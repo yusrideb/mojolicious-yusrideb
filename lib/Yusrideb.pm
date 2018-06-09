@@ -1,6 +1,11 @@
 package Yusrideb;
 use Mojo::Base 'Mojolicious';
 
+use File::Basename 'dirname';
+use File::Spec;
+use File::Spec::Functions qw'rel2abs catdir';
+use File::ShareDir 'dist_dir';
+use Cwd;
 use Cwd;
 use IO::Compress::Gzip 'gzip';
 
@@ -75,8 +80,8 @@ sub startup {
   $self->plugin('PODRenderer');
   
   # Mouting other mojolicious apps :
-  $self->plugin(Mount => {'/app1' => getcwd . '/app/App1'});
-  $self->plugin(Mount => {'/app2' => getcwd . '/app/App2'});
+  $self->plugin(Mount => {'/app1' => catdir('app') . '/App1' });
+  $self->plugin(Mount => {'/app2' => catdir('app') . '/App2' });
 
   # Router
   my $r = $self->routes;
