@@ -12,7 +12,7 @@ perl:
 env:
   - "HARNESS_OPTIONS=j9"
 install:
-  - "cpanm -n Mojo::Pg Test::Pod Test::Pod::Coverage"
+  - "cpanm -n EV IO::Socket::Socks IO::Socket::SSL Net::DNS::Native Role::Tiny Test::Pod Test::Pod::Coverage"
   - "cpanm -n --installdeps ."
 notifications:
   email: false
