@@ -1,0 +1,21 @@
+! app.css
+< http://local/library/bootstrap/css/bootstrap.min.css [mode==development] [minify==0]
+< http://local/library/bootstrap/css/bootstrap.min.css [mode!=development] [minify==1]
+< http://local/library/font-awesome/css/font-awesome.css [mode==development] [minify==0]
+< http://local/library/font-awesome/css/font-awesome.css [mode!=development] [minify==1]
+< http://local/library/devicons/css/devicons.css [mode==development] [minify==0]
+< http://local/library/devicons/css/devicons.css [mode!=development] [minify==1]
+< http://local/library/simple-line-icons/css/simple-line-icons.css [mode==development] [minify==0]
+< http://local/library/simple-line-icons/css/simple-line-icons.css [mode!=development] [minify==1]
+< http://local/template/css/resume.min.css [mode==development] [minify==0]
+< http://local/template/css/resume.min.css [mode!=development] [minify==1]
+
+! app.js
+< http://local/library/jquery/jquery.min.js [mode==development] [minify==0]
+< http://local/library/jquery/jquery.min.js [mode!=development] [minify==1]
+< http://local/library/bootstrap/js/bootstrap.bundle.min.js [mode==development] [minify==0]
+< http://local/library/bootstrap/js/bootstrap.bundle.min.js [mode!=development] [minify==1]
+< http://local/library/jquery-easing/jquery.easing.min.js [mode==development] [minify==0]
+< http://local/library/jquery-easing/jquery.easing.min.js [mode!=development] [minify==1]
+< http://local/template/js/resume.min.js [mode==development] [minify==0]
+< http://local/template/js/resume.min.js [mode!=development] [minify==1]
