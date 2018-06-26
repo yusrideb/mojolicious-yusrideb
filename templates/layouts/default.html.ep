@@ -35,19 +35,8 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" type="text/css" rel="stylesheet">
-    
-    %= asset 'app.css';
 
-    <!-- Bootstrap core CSS -->
-    <!--<link href="/library/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
-
-    <!-- Custom fonts for this template -->
-    <!--<link href="/library/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">-->
-    <!--<link href="/library/devicons/css/devicons.min.css" type="text/css" rel="stylesheet">-->
-    <!--<link href="/library/simple-line-icons/css/simple-line-icons.css" type="text/css" rel="stylesheet">-->
-
-    <!-- Custom styles for this template -->
-    <!--<link href="/template/css/resume.min.css" type="text/css" rel="stylesheet">-->
+    %= stylesheet rel => 'stylesheet', id => 'mystyle', sub { asset->processed('app.css')->map('content')->join }
 
   </head>
 
@@ -56,15 +45,6 @@
     <%= content %>
   
     %= asset 'app.js'
-    <!-- Bootstrap core JavaScript -->
-    <!--<script src="/library/jquery/jquery.min.js"></script>-->
-    <!--<script src="/library/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-
-    <!-- Plugin JavaScript -->
-    <!--<script src="/library/jquery-easing/jquery.easing.min.js"></script>-->
-
-    <!-- Custom scripts for this template -->
-    <!--<script src="/template/js/resume.min.js"></script>-->
   </body>
 
 </html>
