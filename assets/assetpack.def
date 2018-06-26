@@ -1,6 +1,6 @@
 ! app.css
-< http://local/library/bootstrap/css/bootstrap.min.css [mode==development] [minify==0]
-< http://local/library/bootstrap/css/bootstrap.min.css [mode!=development] [minify==1]
+< http://local/library/bootstrap/css/bootstrap.css [mode==development] [minify==0]
+< http://local/library/bootstrap/css/bootstrap.css [mode!=development] [minify==1]
 < http://local/library/font-awesome/css/font-awesome.css [mode==development] [minify==0]
 < http://local/library/font-awesome/css/font-awesome.css [mode!=development] [minify==1]
 < http://local/library/devicons/css/devicons.css [mode==development] [minify==0]
