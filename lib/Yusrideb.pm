@@ -78,6 +78,13 @@ sub startup {
   # Mouting other mojolicious apps :
   $self->plugin(Mount => {'/app1' => $homedir . '/app/App1' });
   $self->plugin(Mount => {'/app2' => $homedir . '/app/App2' });
+  
+  $self->plugin(AssetPack =>
+    { pipes => [qw(Less Css CoffeeScript Riotjs JavaScript Combine)] });
+  $self->content( Mojo::Asset::Memory->new );
+  
+  # -> read assets/assetpack.def
+  $self->asset->process;
 
   # Router
   my $r = $self->routes;
