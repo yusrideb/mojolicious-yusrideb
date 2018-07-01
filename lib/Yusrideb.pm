@@ -134,12 +134,11 @@ sub startup {
   })->name('page_home_redirect1');
   
   # Normal route to controller
-  # $r->get('/406.shtml' => sub {
-  #   my $c = shift;
-  #
-  #   $c->res->code(301);
-  #   $c->redirect_to('page_home');
-  # })->name('page_home_redirect1');
+  $r->get('/406.shtml' => sub {
+    my $c = shift;
+
+    $c->render(template => '406');
+  })->name('page_home_redirect1');
 }
 
 1;
