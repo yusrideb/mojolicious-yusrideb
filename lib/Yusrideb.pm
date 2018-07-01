@@ -85,16 +85,22 @@ sub startup {
   
   # -> read assets/assetpack.def
   $self->asset->process;
-
+  
+  $self->secrets([
+    'PHzxQj5WzmULjhVd4TojMNlzYg7YtjWOfxVt6WsmCNrnWd8Elf7',
+    'CAjlGt1LxaEVlcJf6BbrTHurGs5CbuGEeoOb2DpnBTmoAs5Vbs9'
+  ]);
+  
   # Router
   my $r = $self->routes;
   
   # Normal route to controller
   $r->get('/' => sub {
     my $c = shift;
-  
-    $c->res->code(301);
-    $c->redirect_to('page_home');
+    
+    $c->res->code(200);
+    $c->res->headers->content_type('text/html');
+    $c->render(template => 'index', gzip => 1);
   })->name('index');
   
   # Normal route to controller
@@ -119,20 +125,21 @@ sub startup {
   })->name('page_home_alias2');
   
   # Normal route to controller
-  $r->get('/index.html' => sub {
+  $r->get('/index.html.var' => sub {
     my $c = shift;
-  
-    $c->res->code(301);
-    $c->redirect_to('page_home');
+    
+    $c->res->code(200);
+    $c->res->headers->content_type('text/html');
+    $c->render(template => 'index', gzip => 1);
   })->name('page_home_redirect1');
   
   # Normal route to controller
-  $r->get('/406.shtml' => sub {
-    my $c = shift;
-  
-    $c->res->code(301);
-    $c->redirect_to('page_home');
-  })->name('page_home_redirect1');
+  # $r->get('/406.shtml' => sub {
+  #   my $c = shift;
+  #
+  #   $c->res->code(301);
+  #   $c->redirect_to('page_home');
+  # })->name('page_home_redirect1');
 }
 
 1;
