@@ -139,6 +139,12 @@ sub startup {
 
     $c->render(template => '406');
   })->name('page_home_redirect1');
+  
+  $r->get('/check-url' => sub {
+    my $c = shift;
+    
+    $c->render(text => $c->req->url->to_abs);
+  });
 }
 
 1;
