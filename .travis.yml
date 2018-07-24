@@ -1,3 +1,5 @@
+os: linux
+dist: debian
 language: perl
 perl:
   - "5.26"
